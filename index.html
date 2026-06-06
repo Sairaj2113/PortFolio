@@ -66,6 +66,78 @@
     transition: transform 0.2s, box-shadow 0.2s;
   }
   .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px var(--glow-blue); }
+
+  /* HAMBURGER */
+  .hamburger {
+    display: none;
+    flex-direction: column; justify-content: center; gap: 5px;
+    width: 36px; height: 36px; cursor: pointer;
+    background: none; border: none; padding: 4px;
+    z-index: 1100;
+  }
+  .hamburger span {
+    display: block; height: 2px; border-radius: 2px;
+    background: var(--text-dark);
+    transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+    transform-origin: center;
+  }
+  .hamburger span:nth-child(2) { width: 70%; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; width: 100%; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* MOBILE DRAWER */
+  .nav-drawer {
+    display: none;
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1050;
+    pointer-events: none;
+  }
+  .nav-drawer.open { pointer-events: all; }
+  .nav-drawer-overlay {
+    position: absolute; inset: 0;
+    background: rgba(13,27,42,0.45);
+    backdrop-filter: blur(4px);
+    opacity: 0; transition: opacity 0.3s ease;
+  }
+  .nav-drawer.open .nav-drawer-overlay { opacity: 1; }
+  .nav-drawer-panel {
+    position: absolute; top: 0; right: 0;
+    width: 75%; max-width: 300px; height: 100%;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid var(--border);
+    padding: 80px 32px 40px;
+    display: flex; flex-direction: column; gap: 4px;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    box-shadow: -8px 0 40px rgba(26,115,232,0.12);
+  }
+  .nav-drawer.open .nav-drawer-panel { transform: translateX(0); }
+  .nav-drawer-panel a {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; font-size: 1rem; font-weight: 600;
+    color: var(--text-mid); padding: 14px 16px;
+    border-radius: 14px;
+    transition: background 0.2s, color 0.2s;
+    border: 1px solid transparent;
+  }
+  .nav-drawer-panel a:hover {
+    background: rgba(26,115,232,0.07);
+    color: var(--gemini-blue);
+    border-color: rgba(26,115,232,0.15);
+  }
+  .nav-drawer-panel a .nav-icon { font-size: 1.1rem; }
+  .nav-drawer-hire {
+    margin-top: auto !important;
+    background: linear-gradient(135deg, var(--gemini-blue), var(--gemini-teal)) !important;
+    color: white !important; border-radius: 100px !important;
+    justify-content: center; border-color: transparent !important;
+    font-size: 0.95rem !important;
+  }
+  .nav-drawer-divider {
+    height: 1px; background: var(--border); margin: 8px 0;
+  }
  
   /* HERO */
   #hero {
@@ -589,8 +661,11 @@
  
   /* RESPONSIVE */
   @media(max-width:768px) {
-    nav { padding: 14px 24px; }
+    nav { padding: 14px 20px; }
     .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .nav-drawer { display: block; }
     section { padding: 72px 24px; }
     #hero { padding: 90px 24px 50px; }
     .hero-stats { gap: 28px; }
@@ -718,7 +793,26 @@
     <li><a href="#certifications">Certifications</a></li>
   </ul>
   <a href="mailto:sairajpankar@gmail.com" class="nav-cta">Hire Me</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE DRAWER -->
+<div class="nav-drawer" id="navDrawer">
+  <div class="nav-drawer-overlay" id="drawerOverlay"></div>
+  <div class="nav-drawer-panel">
+    <a href="#hero" class="drawer-link"><span class="nav-icon">🏠</span>Home</a>
+    <a href="#experience" class="drawer-link"><span class="nav-icon">💼</span>Experience</a>
+    <a href="#projects" class="drawer-link"><span class="nav-icon">🚀</span>Projects</a>
+    <a href="#skills" class="drawer-link"><span class="nav-icon">⚡</span>Skills</a>
+    <a href="#opensource" class="drawer-link"><span class="nav-icon">🌿</span>Open Source</a>
+    <a href="#positions" class="drawer-link"><span class="nav-icon">🏆</span>Roles</a>
+    <a href="#certifications" class="drawer-link"><span class="nav-icon">🎓</span>Certifications</a>
+    <div class="nav-drawer-divider"></div>
+    <a href="mailto:sairajpankar@gmail.com" class="nav-drawer-hire">✉️ Hire Me</a>
+  </div>
+</div>
  
 <!-- HERO -->
 <section id="hero">
@@ -1817,6 +1911,30 @@ document.querySelectorAll('.project-card').forEach((el, i) => el.style.transitio
 document.querySelectorAll('.os-card').forEach((el, i) => el.style.transitionDelay = (i * 0.08) + 's');
 document.querySelectorAll('.cert-card').forEach((el, i) => el.style.transitionDelay = (i * 0.05) + 's');
  
+// ======= HAMBURGER MENU =======
+const hamburger = document.getElementById('hamburger');
+const navDrawer = document.getElementById('navDrawer');
+const drawerOverlay = document.getElementById('drawerOverlay');
+const drawerLinks = document.querySelectorAll('.drawer-link');
+
+function openDrawer() {
+  hamburger.classList.add('open');
+  navDrawer.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  hamburger.classList.remove('open');
+  navDrawer.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+hamburger.addEventListener('click', () => {
+  navDrawer.classList.contains('open') ? closeDrawer() : openDrawer();
+});
+drawerOverlay.addEventListener('click', closeDrawer);
+drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+// ======= CAROUSEL AUTO-ADVANCE =======
 // Carousel auto-advance on scroll (detect when #skills is in view)
 const skillsSection = document.getElementById('skills');
 const skillsObs = new IntersectionObserver((entries) => {
