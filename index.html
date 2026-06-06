@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -597,7 +596,111 @@
     .hero-stats { gap: 28px; }
     .projects-grid { grid-template-columns: 1fr; }
     .os-grid { grid-template-columns: 1fr; }
+    .cert-grid { grid-template-columns: 1fr; }
   }
+
+  /* CERTIFICATIONS */
+  #certifications { background: var(--bg-light); }
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 22px; max-width: 1100px; margin: 0 auto;
+  }
+  .cert-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 24px 26px;
+    box-shadow: 0 4px 20px rgba(26,115,232,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex; flex-direction: column; gap: 12px;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .cert-card.visible { opacity: 1; transform: translateY(0); }
+  .cert-card:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(26,115,232,0.15); }
+  .cert-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gemini-blue), var(--gemini-teal));
+    border-radius: 20px 20px 0 0;
+  }
+  .cert-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: linear-gradient(135deg, rgba(26,115,232,0.12), rgba(0,188,212,0.12));
+    border: 1px solid rgba(26,115,232,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .cert-header { display: flex; align-items: flex-start; gap: 14px; }
+  .cert-meta { flex: 1; }
+  .cert-title {
+    font-family: 'Fraunces', serif;
+    font-size: 0.98rem; font-weight: 700;
+    color: var(--text-dark); line-height: 1.3; margin-bottom: 5px;
+  }
+  .cert-issuer {
+    font-size: 0.8rem; font-weight: 600;
+    color: var(--gemini-blue);
+  }
+  .cert-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
+  .cert-date {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 0.75rem; font-weight: 500;
+    color: var(--text-light);
+    font-family: 'Fira Code', monospace;
+  }
+  .cert-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: rgba(26,115,232,0.08);
+    border: 1px solid rgba(26,115,232,0.2);
+    color: var(--gemini-blue);
+    font-size: 0.7rem; font-weight: 600;
+    padding: 3px 10px; border-radius: 100px;
+    letter-spacing: 0.3px;
+  }
+  .cert-credential {
+    font-size: 0.72rem; color: var(--text-light);
+    font-family: 'Fira Code', monospace;
+    margin-top: 2px;
+  }
+  .cert-link {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 0.78rem; font-weight: 600; color: var(--gemini-blue);
+    text-decoration: none; padding: 5px 14px;
+    background: rgba(26,115,232,0.07);
+    border: 1px solid rgba(26,115,232,0.2);
+    border-radius: 100px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .cert-link:hover { background: rgba(26,115,232,0.14); transform: translateX(2px); }
+  .cert-link svg { width: 12px; height: 12px; }
+  .cert-stats-row {
+    display: flex; gap: 32px; justify-content: center;
+    margin-bottom: 52px;
+    flex-wrap: wrap;
+  }
+  .cert-stat {
+    text-align: center;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px 32px;
+    box-shadow: 0 2px 12px rgba(26,115,232,0.05);
+    min-width: 140px;
+  }
+  .cert-stat-num {
+    font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 800;
+    background: linear-gradient(135deg, var(--gemini-blue), var(--gemini-teal));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .cert-stat-label { font-size: 0.78rem; color: var(--text-light); font-weight: 500; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -612,6 +715,7 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#opensource">Open Source</a></li>
     <li><a href="#positions">Roles</a></li>
+    <li><a href="#certifications">Certifications</a></li>
   </ul>
   <a href="mailto:sairajpankar@gmail.com" class="nav-cta">Hire Me</a>
 </nav>
@@ -1210,6 +1314,385 @@
   </div>
 </section>
  
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-header reveal">
+    <div class="section-tag">Credentials</div>
+    <h2 class="section-title">Certifications & <span>Badges</span></h2>
+  </div>
+
+  <!-- Stats row -->
+  <div class="cert-stats-row reveal">
+    <div class="cert-stat">
+      <div class="cert-stat-num">15+</div>
+      <div class="cert-stat-label">Certifications</div>
+    </div>
+    <div class="cert-stat">
+      <div class="cert-stat-num">2</div>
+      <div class="cert-stat-label">Issuers</div>
+    </div>
+    <div class="cert-stat">
+      <div class="cert-stat-num">2026</div>
+      <div class="cert-stat-label">Most Recent</div>
+    </div>
+  </div>
+
+  <div class="cert-grid">
+
+    <!-- Introduction to Test Driven Development -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">🧪</div>
+        <div class="cert-meta">
+          <div class="cert-title">Introduction to Test Driven Development</div>
+          <div class="cert-issuer">Coursera · IBM</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Feb 2026</div>
+        <a href="https://www.credly.com/badges/f8c3c9c0-3d4b-458f-8815-bd19f959b826/linked_in_profile" target="_blank" class="cert-link">
+          View Badge <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Introduction to Test and Behavior Driven Development -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">🔬</div>
+        <div class="cert-meta">
+          <div class="cert-title">Introduction to Test and Behavior Driven Development</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-credential">ID: MWNFPXO8H7CK</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Feb 2026</div>
+        <a href="https://www.coursera.org/account/accomplishments/records/MWNFPXO8H7CK" target="_blank" class="cert-link">
+          View Cert <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Application Development using Microservices and Serverless -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">☁️</div>
+        <div class="cert-meta">
+          <div class="cert-title">Application Development using Microservices and Serverless</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-credential">ID: Y34AKTQ2BEDJ</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Feb 2026</div>
+        <a href="https://www.coursera.org/account/accomplishments/records/Y34AKTQ2BEDJ" target="_blank" class="cert-link">
+          View Cert <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Containers & Kubernetes Essentials -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">🐳</div>
+        <div class="cert-meta">
+          <div class="cert-title">Containers & Kubernetes Essentials</div>
+          <div class="cert-issuer">Coursera · IBM</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Feb 2026</div>
+        <a href="https://www.credly.com/badges/05a63ea9-2b31-4990-9b8c-e6401a7860c4/linked_in_profile" target="_blank" class="cert-link">
+          View Badge <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Introduction to Containers -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">⚙️</div>
+        <div class="cert-meta">
+          <div class="cert-title">Introduction to Containers w/ Docker, Kubernetes & OpenShift</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-credential">ID: RHXYZEYXAFYM</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Feb 2026</div>
+        <a href="https://www.coursera.org/account/accomplishments/records/RHXYZEYXAFYM" target="_blank" class="cert-link">
+          View Cert <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Python Project for AI -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">🤖</div>
+        <div class="cert-meta">
+          <div class="cert-title">Python Project for AI and Application Development</div>
+          <div class="cert-issuer">Coursera · IBM</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Feb 2026</div>
+        <a href="https://www.credly.com/badges/616c6765-efd8-475c-a6c3-9e0bfb203e47/linked_in_profile" target="_blank" class="cert-link">
+          View Badge <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Developing AI Applications with Python and Flask -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">🐍</div>
+        <div class="cert-meta">
+          <div class="cert-title">Developing AI Applications with Python and Flask</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-credential">ID: AOC5HYCCJRQT</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Feb 2026</div>
+        <a href="https://www.coursera.org/account/accomplishments/records/AOC5HYCCJRQT" target="_blank" class="cert-link">
+          View Cert <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Python for Data Science and AI -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">📊</div>
+        <div class="cert-meta">
+          <div class="cert-title">Python for Data Science and AI</div>
+          <div class="cert-issuer">Coursera · IBM</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Feb 2026</div>
+        <a href="https://www.credly.com/badges/77e01a3d-e453-4890-bb0f-fbf0aab1421a/linked_in_profile" target="_blank" class="cert-link">
+          View Badge <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Python for Data Science AI & Development -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">💡</div>
+        <div class="cert-meta">
+          <div class="cert-title">Python for Data Science, AI & Development</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-credential">ID: 1POJD6PW2H22</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Feb 2026</div>
+        <a href="https://www.coursera.org/account/accomplishments/records/1POJD6PW2H22" target="_blank" class="cert-link">
+          View Cert <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Linux Commands & Shell Scripting Essentials -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">🐧</div>
+        <div class="cert-meta">
+          <div class="cert-title">Linux Commands & Shell Scripting Essentials V2</div>
+          <div class="cert-issuer">Coursera · IBM</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Jan 2026</div>
+        <a href="https://www.credly.com/badges/883ad7e9-b9cd-4a68-b49e-0d24a2041e77/linked_in_profile" target="_blank" class="cert-link">
+          View Badge <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hands-on Introduction to Linux -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">💻</div>
+        <div class="cert-meta">
+          <div class="cert-title">Hands-on Introduction to Linux Commands and Shell Scripting</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-credential">ID: 104O00WIL4KE</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Jan 2026</div>
+        <a href="https://www.coursera.org/account/accomplishments/records/104O00WIL4KE" target="_blank" class="cert-link">
+          View Cert <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Git and GitHub Essentials -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">🌿</div>
+        <div class="cert-meta">
+          <div class="cert-title">Git and GitHub Essentials</div>
+          <div class="cert-issuer">Coursera · IBM</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Jan 2026</div>
+        <a href="https://www.credly.com/badges/d677a3bb-8f66-44b8-a3d4-20b42ac8bb08/linked_in_profile" target="_blank" class="cert-link">
+          View Badge <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Getting Started with Git and GitHub -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">🔗</div>
+        <div class="cert-meta">
+          <div class="cert-title">Getting Started with Git and GitHub</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-credential">ID: MYX7MB0TUKVN</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Jan 2026</div>
+        <a href="https://www.coursera.org/account/accomplishments/records/MYX7MB0TUKVN" target="_blank" class="cert-link">
+          View Cert <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Introduction to Software Engineering -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">🏗️</div>
+        <div class="cert-meta">
+          <div class="cert-title">Introduction to Software Engineering</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-credential">ID: YYZ2IU7NC1J5</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Jan 2026</div>
+        <a href="https://www.coursera.org/account/accomplishments/records/YYZ2IU7NC1J5" target="_blank" class="cert-link">
+          View Cert <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Introduction to Agile Development and Scrum (Coursera) -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">🏃</div>
+        <div class="cert-meta">
+          <div class="cert-title">Introduction to Agile Development and Scrum</div>
+          <div class="cert-issuer">Coursera · IBM</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Jan 2026</div>
+        <a href="https://www.credly.com/badges/76d4ba07-051a-4607-8f89-cfa8f53af436/linked_in_profile" target="_blank" class="cert-link">
+          View Badge <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Introduction to Agile Development and Scrum IBM -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">🔄</div>
+        <div class="cert-meta">
+          <div class="cert-title">Introduction to Agile Development and Scrum</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-credential">ID: GCYHHKA9V7GD</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Jan 2026</div>
+        <a href="https://www.coursera.org/account/accomplishments/records/GCYHHKA9V7GD" target="_blank" class="cert-link">
+          View Cert <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Introduction to Cloud Computing Coursera -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">🌩️</div>
+        <div class="cert-meta">
+          <div class="cert-title">Introduction to Cloud Computing</div>
+          <div class="cert-issuer">Coursera · IBM</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Jan 2026</div>
+        <a href="https://www.credly.com/badges/f81051df-367e-46ef-a5ed-e5ba9cfddb7a/linked_in_profile" target="_blank" class="cert-link">
+          View Badge <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Introduction to Cloud Computing IBM -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">☁️</div>
+        <div class="cert-meta">
+          <div class="cert-title">Introduction to Cloud Computing</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-credential">ID: F2QXG8T62M0Y</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Jan 2026</div>
+        <a href="https://www.coursera.org/account/accomplishments/records/F2QXG8T62M0Y" target="_blank" class="cert-link">
+          View Cert <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- DevOps Essentials -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">🚀</div>
+        <div class="cert-meta">
+          <div class="cert-title">DevOps Essentials</div>
+          <div class="cert-issuer">IBM</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Jan 2026</div>
+        <a href="https://www.credly.com/badges/db6f64ae-37bd-4b55-81b9-7e436e197615/linked_in_profile" target="_blank" class="cert-link">
+          View Badge <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Introduction to DevOps -->
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-icon">🔧</div>
+        <div class="cert-meta">
+          <div class="cert-title">Introduction to DevOps</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-credential">ID: TF123H54QTUU</div>
+        </div>
+      </div>
+      <div class="cert-footer">
+        <div class="cert-date">📅 Jan 2026</div>
+        <a href="https://www.coursera.org/account/accomplishments/records/TF123H54QTUU" target="_blank" class="cert-link">
+          View Cert <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-name">Sairaj Pankar</div>
@@ -1327,11 +1810,12 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.15 });
  
-document.querySelectorAll('.reveal, .timeline-item, .project-card, .os-card, .position-card').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal, .timeline-item, .project-card, .os-card, .position-card, .cert-card').forEach(el => observer.observe(el));
  
 // Stagger project cards
 document.querySelectorAll('.project-card').forEach((el, i) => el.style.transitionDelay = (i * 0.1) + 's');
 document.querySelectorAll('.os-card').forEach((el, i) => el.style.transitionDelay = (i * 0.08) + 's');
+document.querySelectorAll('.cert-card').forEach((el, i) => el.style.transitionDelay = (i * 0.05) + 's');
  
 // Carousel auto-advance on scroll (detect when #skills is in view)
 const skillsSection = document.getElementById('skills');
@@ -1345,5 +1829,3 @@ skillsObs.observe(skillsSection);
 </script>
 </body>
 </html>
- 
-
