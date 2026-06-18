@@ -811,6 +811,116 @@
   }
   .cert-link:hover { background: rgba(26,115,232,0.14); transform: translateX(2px); }
   .cert-link svg { width: 12px; height: 12px; }
+
+  /* ── SPECIALIZATION FEATURED CARD ── */
+  .cert-specialization {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #0d1b2a 0%, #0f2744 55%, #0a1e38 100%) !important;
+    border: 1.5px solid rgba(26,115,232,0.5) !important;
+    border-radius: 24px !important;
+    padding: 32px 36px !important;
+    position: relative; overflow: hidden;
+    box-shadow: 0 8px 40px rgba(26,115,232,0.22), 0 2px 12px rgba(0,0,0,0.18);
+  }
+  .cert-specialization::before { display: none; } /* hide default top bar */
+  .cert-specialization:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 16px 56px rgba(26,115,232,0.32), 0 4px 20px rgba(0,0,0,0.2) !important;
+  }
+  .spec-topbar {
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, #f9c74f, #f3722c, #1a73e8, #00bcd4, #7c4dff);
+    border-radius: 24px 24px 0 0;
+    animation: spec-shimmer 3s linear infinite;
+    background-size: 200% 100%;
+  }
+  @keyframes spec-shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  .spec-badge-float {
+    display: inline-flex; align-items: center;
+    background: linear-gradient(135deg, rgba(249,199,79,0.18), rgba(243,114,44,0.14));
+    border: 1px solid rgba(249,199,79,0.45);
+    color: #f9c74f;
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 1.2px;
+    padding: 4px 14px; border-radius: 100px;
+    margin-bottom: 18px;
+    width: fit-content;
+  }
+  .spec-body {
+    display: flex; align-items: center;
+    justify-content: space-between; gap: 24px;
+    flex-wrap: wrap;
+  }
+  .spec-icon {
+    width: 60px; height: 60px; border-radius: 16px; flex-shrink: 0;
+    background: linear-gradient(135deg, rgba(249,199,79,0.18), rgba(26,115,232,0.18));
+    border: 1.5px solid rgba(249,199,79,0.35);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 16px rgba(249,199,79,0.12);
+  }
+  .spec-title {
+    font-size: 1.15rem !important;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+  }
+  .spec-issuer-row {
+    display: flex; align-items: center; gap: 8px;
+    margin-top: 2px;
+  }
+  .spec-issuer-name {
+    font-size: 0.85rem; font-weight: 800;
+    background: linear-gradient(135deg, #f9c74f, #f3722c);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    letter-spacing: 0.3px;
+  }
+  .spec-dot { color: rgba(255,255,255,0.3); font-size: 0.85rem; }
+  .spec-platform {
+    font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.55);
+  }
+  .spec-right {
+    display: flex; flex-direction: column; align-items: flex-end; gap: 14px;
+    flex-shrink: 0;
+  }
+  .spec-date {
+    font-size: 0.78rem; font-weight: 500;
+    color: rgba(255,255,255,0.5);
+    font-family: 'Fira Code', monospace;
+  }
+  .spec-cta {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: linear-gradient(135deg, #1a73e8, #00bcd4);
+    color: #ffffff; font-size: 0.85rem; font-weight: 700;
+    padding: 11px 24px; border-radius: 100px; text-decoration: none;
+    border: none;
+    box-shadow: 0 4px 18px rgba(26,115,232,0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+  }
+  .spec-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(26,115,232,0.5);
+  }
+  .spec-deco {
+    position: absolute; border-radius: 50%;
+    pointer-events: none; opacity: 0.08;
+  }
+  .spec-deco-1 {
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, #1a73e8, transparent 70%);
+    bottom: -60px; right: 60px;
+  }
+  .spec-deco-2 {
+    width: 150px; height: 150px;
+    background: radial-gradient(circle, #f9c74f, transparent 70%);
+    top: -40px; right: -20px;
+  }
+  .cert-specialization .cert-credential {
+    color: rgba(255,255,255,0.35) !important;
+  }
   .cert-stats-row {
     display: flex; gap: 32px; justify-content: center;
     margin-bottom: 52px;
@@ -1513,6 +1623,44 @@
   </div>
 
   <div class="cert-grid">
+
+    <!-- IBM DevOps and Software Engineering Professional Certificate — SPECIALIZATION FEATURED CARD -->
+    <div class="cert-card cert-specialization">
+      <!-- Shimmer bar override -->
+      <div class="spec-topbar"></div>
+
+      <!-- Floating badge -->
+      <div class="spec-badge-float">⭐ PROFESSIONAL SPECIALIZATION</div>
+
+      <div class="spec-body">
+        <!-- Left: icon + meta -->
+        <div class="cert-header" style="align-items:center; gap:18px;">
+          <div class="spec-icon">🏆</div>
+          <div class="cert-meta">
+            <div class="cert-title spec-title">IBM DevOps and Software Engineering<br>Professional Certificate</div>
+            <div class="spec-issuer-row">
+              <span class="spec-issuer-name">IBM</span>
+              <span class="spec-dot">·</span>
+              <span class="spec-platform">Coursera</span>
+            </div>
+            <div class="cert-credential" style="margin-top:6px;">Credential ID: I18R4VS5QN2T</div>
+          </div>
+        </div>
+
+        <!-- Right: date + CTA -->
+        <div class="spec-right">
+          <div class="spec-date">📅 Issued Jun 2026</div>
+          <a href="https://www.coursera.org/account/accomplishments/specialization/I18R4VS5QN2T" target="_blank" class="spec-cta">
+            Show Credential
+            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="13" height="13"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Decorative circuit dots -->
+      <div class="spec-deco spec-deco-1"></div>
+      <div class="spec-deco spec-deco-2"></div>
+    </div>
 
     <!-- Introduction to Test Driven Development -->
     <div class="cert-card">
