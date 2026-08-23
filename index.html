@@ -1130,7 +1130,7 @@
     <li><a href="#certifications">Certifications</a></li>
   </ul>
   <div class="nav-right">
-    <a class="nav-resume-btn" href="https://raw.githubusercontent.com/Sairaj2113/PortFolio/master/Sairaj_Pankar_AI-ML_Resume%20(1).pdf" download="Sairaj_Pankar_AI-ML_Resume.pdf" onclick="return downloadResume(event, this.href)">Resume ↗</a>
+    <a class="nav-resume-btn" href="SAIRAJ_PANKAR_CS_AI_RESUME.pdf" download="SAIRAJ_PANKAR_CS_AI_RESUME.pdf" onclick="return downloadResume(event, this.href)">Resume ↗</a>
     <a class="nav-cta" href="mailto:sairajpankar@gmail.com" style="text-decoration:none;">Contact Me</a>
     <button class="hamburger" id="hamburger" aria-label="Open navigation">
       <span></span><span></span><span></span>
@@ -1147,7 +1147,7 @@
     <a href="#skills" class="drawer-link"><span class="nav-icon">⚙️</span>Skills</a>
     <a href="#certifications" class="drawer-link"><span class="nav-icon">🎓</span>Certifications</a>
     <div class="nav-drawer-divider"></div>
-    <a href="https://raw.githubusercontent.com/Sairaj2113/PortFolio/master/Sairaj_Pankar_AI-ML_Resume%20(1).pdf" download="Sairaj_Pankar_AI-ML_Resume.pdf" class="drawer-link" onclick="return downloadResume(event, this.href)"><span class="nav-icon">📄</span>Resume</a>
+    <a href="SAIRAJ_PANKAR_CS_AI_RESUME.pdf" download="SAIRAJ_PANKAR_CS_AI_RESUME.pdf" class="drawer-link" onclick="return downloadResume(event, this.href)"><span class="nav-icon">📄</span>Resume</a>
     <a href="mailto:sairajpankar@gmail.com" class="drawer-link nav-drawer-hire">Contact Me</a>
   </div>
 </div>
@@ -1182,7 +1182,7 @@
 
     <div class="hero-actions">
       <a class="btn-primary" href="#projects">View AI Projects</a>
-      <a class="btn-ghost" href="https://raw.githubusercontent.com/Sairaj2113/PortFolio/master/Sairaj_Pankar_AI-ML_Resume%20(1).pdf" target="_blank" rel="noopener">View Resume</a>
+      <a class="btn-ghost" href="SAIRAJ_PANKAR_CS_AI_RESUME.pdf" target="_blank" rel="noopener">View Resume</a>
     </div>
 
     <div class="hero-stats">
@@ -1595,11 +1595,9 @@
 </footer>
 
 <script>
-// Forces an actual download of the resume PDF hosted on GitHub.
-// A plain <a download> attribute is ignored by browsers for cross-origin
-// links unless the response includes Content-Disposition: attachment,
-// which raw.githubusercontent.com does not send — so we fetch the file
-// ourselves and save it via a Blob URL instead.
+// Forces an actual download of the resume PDF.
+// We fetch the file and save it via a Blob URL so the filename is
+// always respected, regardless of how the browser handles the <a download> attribute.
 async function downloadResume(event, url) {
   event.preventDefault();
   try {
@@ -1609,7 +1607,7 @@ async function downloadResume(event, url) {
     const blobUrl = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = blobUrl;
-    link.download = 'Sairaj_Pankar_AI-ML_Resume.pdf';
+    link.download = 'SAIRAJ_PANKAR_CS_AI_RESUME.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
