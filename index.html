@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sairaj Pankar — AI/ML Software Engineer</title>
+<title>Sairaj Pankar — AI/ML &amp; Generative AI Engineer</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -1101,6 +1101,64 @@
     color: rgba(255,255,255,0.5); font-size: 0.9rem;
   }
 
+  /* ── FLAGSHIP PROJECT + BRANCHED ARCHITECTURE FLOWS ── */
+  .card-logo-4 { background: linear-gradient(135deg, #0d47a1 0%, #7c4dff 55%, #00bcd4 100%); }
+
+  .flagship-flag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(124,77,255,0.09);
+    border: 1px solid rgba(124,77,255,0.28);
+    color: #5e35b1;
+    font-size: 0.66rem; font-weight: 800; letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 4px 11px; border-radius: 100px;
+    width: fit-content; margin-bottom: 10px;
+  }
+  .flagship-flag .flag-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gemini-purple);
+  }
+
+  /* additional flow node types */
+  .flow-node.frontend {
+    color: #3949ab;
+    border-color: rgba(63,81,181,0.28);
+    background: rgba(63,81,181,0.07);
+  }
+  .flow-node.db {
+    color: #2f5d7c;
+    border-color: rgba(47,93,124,0.26);
+    background: rgba(47,93,124,0.06);
+  }
+
+  /* vertical + branching flow helpers */
+  .flow-stack { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+  .flow-stack .flow-node { text-align: center; }
+  .flow-arrow-down {
+    color: var(--text-light); font-size: 0.85rem; font-weight: 700;
+    line-height: 1; text-align: center;
+  }
+  .flow-split {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px; margin-top: 6px;
+  }
+  .flow-branch {
+    border: 1px dashed rgba(26,115,232,0.22);
+    border-radius: 14px; padding: 12px 10px;
+    background: rgba(255,255,255,0.55);
+  }
+  .flow-branch-title {
+    font-size: 0.64rem; font-weight: 800; letter-spacing: 0.8px;
+    text-transform: uppercase; color: var(--text-light);
+    text-align: center; margin-bottom: 8px;
+  }
+  .flow-tree { display: flex; flex-direction: column; gap: 5px; margin-top: 5px; }
+  .flow-tree-row { display: flex; align-items: center; gap: 7px; }
+  .flow-tree-prefix {
+    font-family: 'Fira Code', monospace; font-size: 0.72rem;
+    color: var(--text-light); flex-shrink: 0;
+  }
+
   @media(max-width:900px) {
     .impact-strip { grid-template-columns: repeat(2, 1fr); }
     .skill-groups { grid-template-columns: 1fr; }
@@ -1113,6 +1171,9 @@
     .flow-row { flex-direction: column; align-items: stretch; }
     .flow-node { text-align: center; }
     .flow-arrow { transform: rotate(90deg); align-self: center; }
+    .flow-split { grid-template-columns: 1fr; }
+    .flow-stack { align-items: stretch; }
+    .flow-tree-row { align-items: flex-start; }
     .project-links { gap: 8px; }
   }
 
@@ -1130,7 +1191,7 @@
     <li><a href="#certifications">Certifications</a></li>
   </ul>
   <div class="nav-right">
-    <a class="nav-resume-btn" href="SAIRAJ_PANKAR_CS_AI_RESUME.pdf" download="SAIRAJ_PANKAR_CS_AI_RESUME.pdf" onclick="return downloadResume(event, this.href)">Resume ↗</a>
+    <a class="nav-resume-btn" href="SAIRAJ_PANKAR_CS_AI_RESUME.pdf" download="SAIRAJ_PANKAR_CS_AI_RESUME (6).pdf" onclick="return downloadResume(event, this.href)">Resume ↗</a>
     <a class="nav-cta" href="mailto:sairajpankar@gmail.com" style="text-decoration:none;">Contact Me</a>
     <button class="hamburger" id="hamburger" aria-label="Open navigation">
       <span></span><span></span><span></span>
@@ -1161,23 +1222,25 @@
   <div class="hero-content">
     <div class="hero-badge"><span class="dot"></span>Available for AI/ML Opportunities</div>
     <h1 class="hero-name">Sairaj<br><span>Pankar</span></h1>
-    <p class="hero-title">AI/ML Software Engineer · Computer Vision · Applied AI</p>
+    <p class="hero-title">AI/ML &amp; Generative AI Engineer · Full-Stack AI Systems</p>
 
     <div class="hero-chips">
-      <span class="hero-chip chip-ml">🧠 AI / ML</span>
+      <span class="hero-chip chip-do">✨ Generative AI</span>
+      <span class="hero-chip chip-ml">🔎 RAG &amp; LLMs</span>
       <span class="hero-chip chip-be">👁 Computer Vision</span>
-      <span class="hero-chip chip-do">⚡ GPU / Edge AI</span>
       <span class="hero-chip chip-fs">⚙ AI Software Systems</span>
     </div>
 
     <p class="hero-desc">
-      I build machine-learning and computer-vision systems for real-time industrial applications —
-      from model development and GPU-accelerated inference to distributed Python systems and Linux deployment.
+      I build production-oriented AI systems spanning Generative AI, RAG, machine learning and computer vision —
+      from evidence-grounded LLM applications and semantic retrieval to real-time vision pipelines,
+      backend APIs and production deployment.
     </p>
 
     <div class="hero-microstack">
-      <span>Python</span><span>PyTorch</span><span>YOLO</span><span>CUDA</span>
-      <span>OpenCV</span><span>FastAPI</span><span>Linux</span>
+      <span>Python</span><span>FastAPI</span><span>LangChain</span><span>RAG</span>
+      <span>LLMs</span><span>pgvector</span><span>PostgreSQL</span><span>React</span>
+      <span>PyTorch</span><span>Docker</span>
     </div>
 
     <div class="hero-actions">
@@ -1256,6 +1319,138 @@
   </div>
 
   <div class="projects-grid">
+
+    <!-- AI EMPLOYEE CONTRIBUTION & SPRINT INTELLIGENCE PLATFORM (FLAGSHIP) -->
+    <div class="project-card-static">
+      <div class="card-logo-half card-logo-4">
+        <span class="card-tag">GenAI · Hybrid RAG</span>
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="9" y="12" width="24" height="18" rx="5" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.12)"/>
+          <rect x="33" y="34" width="22" height="18" rx="5" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.12)"/>
+          <path d="M21 30 V38 H43" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="47" cy="20" r="7" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.18)"/>
+          <path d="M52 25 L57 30" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M15 21h10M15 25h6" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="card-info">
+        <div class="flagship-flag"><span class="flag-dot"></span>Flagship GenAI Project</div>
+        <div class="card-title">AI Employee Contribution &amp; Sprint Intelligence Platform</div>
+        <div class="card-desc">
+          Full-stack AI platform that transforms project, sprint, issue, testing, deployment and
+          engineering-document evidence into grounded project intelligence. Combines deterministic
+          PostgreSQL analytics with pgvector semantic retrieval and LLM-based synthesis to generate
+          citation-backed answers, contribution summaries and sprint insights while preserving
+          evidence traceability.
+        </div>
+        <div class="project-metric">Hybrid Retrieval · Citation-Grounded LLM Synthesis</div>
+        <div class="card-tags">
+          <span class="card-pill">Python</span><span class="card-pill">FastAPI</span>
+          <span class="card-pill">React</span><span class="card-pill">TypeScript</span>
+          <span class="card-pill">PostgreSQL</span><span class="card-pill">pgvector</span>
+          <span class="card-pill">LangChain</span><span class="card-pill">MiniLM</span>
+          <span class="card-pill">LLM</span><span class="card-pill">SQLAlchemy</span>
+          <span class="card-pill">Alembic</span><span class="card-pill">Pydantic</span>
+          <span class="card-pill">TanStack Query</span><span class="card-pill">Vite</span>
+          <span class="card-pill">Docker</span>
+        </div>
+      </div>
+
+      <details class="architecture-details">
+        <summary>View Architecture Flow</summary>
+        <div class="architecture-body">
+
+          <div class="flow-label">A · Application Flow</div>
+          <div class="flow-row">
+            <span class="flow-node frontend">React + TypeScript UI</span><span class="flow-arrow">→</span>
+            <span class="flow-node backend">FastAPI</span><span class="flow-arrow">→</span>
+            <span class="flow-node backend">Project / Sprint Intelligence APIs</span>
+          </div>
+
+          <div class="flow-label">B · Hybrid Evidence Retrieval</div>
+          <div class="flow-stack">
+            <span class="flow-node">User Question</span>
+            <span class="flow-arrow-down">↓</span>
+            <span class="flow-node ai">Query Intent Classification</span>
+            <span class="flow-arrow-down">↓</span>
+          </div>
+          <div class="flow-split">
+            <div class="flow-branch">
+              <div class="flow-branch-title">Structured Evidence</div>
+              <div class="flow-stack">
+                <span class="flow-node db">PostgreSQL</span>
+                <span class="flow-arrow-down">↓</span>
+                <span class="flow-node backend">Issues / KPIs / Tests</span>
+                <span class="flow-node backend">Deployments / Workflow</span>
+              </div>
+            </div>
+            <div class="flow-branch">
+              <div class="flow-branch-title">Document Evidence</div>
+              <div class="flow-stack">
+                <span class="flow-node ai">MiniLM Embeddings</span>
+                <span class="flow-arrow-down">↓</span>
+                <span class="flow-node db">pgvector Search</span>
+                <span class="flow-node">PRD / TRD / Docs</span>
+              </div>
+            </div>
+          </div>
+          <div class="flow-stack" style="margin-top:8px;">
+            <span class="flow-arrow-down">↓</span>
+            <span class="flow-node ai">Hybrid Evidence Merger</span>
+            <span class="flow-arrow-down">↓</span>
+            <span class="flow-node metric">Bounded Evidence Context</span>
+          </div>
+
+          <div class="flow-label">C · Grounded LLM Intelligence</div>
+          <div class="flow-stack">
+            <span class="flow-node metric">Bounded Evidence Context</span>
+            <span class="flow-arrow-down">↓</span>
+            <span class="flow-node db">Citation / Source Registry</span>
+            <span class="flow-arrow-down">↓</span>
+            <span class="flow-node ai">LangChain LLM Pipeline</span>
+            <span class="flow-arrow-down">↓</span>
+            <span class="flow-node ai">Grounded AI Analysis</span>
+            <span class="flow-arrow-down">↓</span>
+            <span class="flow-node backend">Citation Validation</span>
+            <span class="flow-arrow-down">↓</span>
+            <span class="flow-node metric">Evidence-Backed Response</span>
+          </div>
+
+          <div class="flow-label">D · Production Architecture</div>
+          <div class="flow-stack" style="align-items:flex-start;">
+            <span class="flow-node">User</span>
+            <span class="flow-arrow-down">↓</span>
+            <span class="flow-node frontend">Hosted React Frontend</span>
+            <span class="flow-arrow-down">↓ HTTPS</span>
+            <span class="flow-node backend">FastAPI Backend</span>
+          </div>
+          <div class="flow-tree">
+            <div class="flow-tree-row">
+              <span class="flow-tree-prefix">├──</span>
+              <span class="flow-node db">PostgreSQL + pgvector</span>
+            </div>
+            <div class="flow-tree-row">
+              <span class="flow-tree-prefix">├──</span>
+              <span class="flow-node db">Document Storage</span>
+            </div>
+            <div class="flow-tree-row">
+              <span class="flow-tree-prefix">├──</span>
+              <span class="flow-node ai">MiniLM Embeddings</span>
+            </div>
+            <div class="flow-tree-row">
+              <span class="flow-tree-prefix">└──</span>
+              <span class="flow-node ai">LLM API</span>
+            </div>
+          </div>
+          <div class="flow-row" style="margin-top:10px;">
+            <span class="flow-node devops">Docker</span><span class="flow-arrow">→</span>
+            <span class="flow-node devops">Containerized Deployment</span>
+          </div>
+
+        </div>
+      </details>
+    </div>
 
     <!-- HOME LOAN -->
     <div class="project-card-static">
@@ -1437,12 +1632,12 @@
   </div>
 
   <div class="skills-mobile-grid" style="display:none;">
-    <span class="skills-mobile-pill">Python</span><span class="skills-mobile-pill">PyTorch</span>
-    <span class="skills-mobile-pill">YOLO</span><span class="skills-mobile-pill">CUDA</span>
-    <span class="skills-mobile-pill">OpenCV</span><span class="skills-mobile-pill">Scikit-learn</span>
-    <span class="skills-mobile-pill">FastAPI</span><span class="skills-mobile-pill">PostgreSQL</span>
-    <span class="skills-mobile-pill">Docker</span><span class="skills-mobile-pill">Kubernetes</span>
-    <span class="skills-mobile-pill">Linux</span><span class="skills-mobile-pill">Pinecone</span>
+    <span class="skills-mobile-pill">Python</span><span class="skills-mobile-pill">FastAPI</span>
+    <span class="skills-mobile-pill">LangChain</span><span class="skills-mobile-pill">RAG</span>
+    <span class="skills-mobile-pill">LLMs</span><span class="skills-mobile-pill">pgvector</span>
+    <span class="skills-mobile-pill">PostgreSQL</span><span class="skills-mobile-pill">React</span>
+    <span class="skills-mobile-pill">PyTorch</span><span class="skills-mobile-pill">YOLO</span>
+    <span class="skills-mobile-pill">Docker</span><span class="skills-mobile-pill">GitHub Actions</span>
   </div>
 
   <div class="skills-orb-container" id="skillsOrb">
@@ -1451,50 +1646,54 @@
 
   <div class="skill-groups">
     <div class="skill-group-card">
-      <h3>AI/ML & Applied AI</h3>
+      <h3>Generative AI & RAG</h3>
       <div class="skill-group-pills">
-        <span>PyTorch</span><span>Scikit-learn</span><span>LightGBM</span><span>XGBoost</span>
-        <span>CatBoost</span><span>SentenceTransformers</span><span>Pandas</span><span>NumPy</span>
+        <span>LangChain</span><span>LLM Integration</span><span>RAG</span><span>Hybrid Retrieval</span>
+        <span>Prompt Engineering</span><span>Structured Outputs</span><span>Citation Grounding</span>
+        <span>SentenceTransformers</span><span>Embeddings</span><span>Semantic Search</span><span>pgvector</span>
       </div>
     </div>
 
     <div class="skill-group-card">
-      <h3>Computer Vision</h3>
+      <h3>AI / ML & Computer Vision</h3>
       <div class="skill-group-pills">
-        <span>YOLO</span><span>OpenCV</span><span>Pose Estimation</span>
-        <span>Thermal Imaging</span><span>RTSP</span>
+        <span>PyTorch</span><span>Scikit-learn</span><span>YOLO</span><span>OpenCV</span>
+        <span>LightGBM</span><span>XGBoost</span><span>CatBoost</span><span>CUDA</span>
+        <span>Pose Estimation</span><span>Thermal Imaging</span><span>Pandas</span><span>NumPy</span>
       </div>
     </div>
 
     <div class="skill-group-card">
-      <h3>Backend & Systems</h3>
+      <h3>Backend & Full-Stack</h3>
       <div class="skill-group-pills">
-        <span>FastAPI</span><span>Flask</span><span>REST APIs</span><span>SQLAlchemy</span>
-        <span>PySide6 / PyQt</span><span>Multithreading</span><span>Distributed Systems</span><span>Linux</span>
-      </div>
-    </div>
-
-    <div class="skill-group-card">
-      <h3>Cloud & DevOps</h3>
-      <div class="skill-group-pills">
-        <span>Docker</span><span>Docker Compose</span><span>GitHub Actions</span>
-        <span>CI/CD</span><span>Kubernetes</span><span>Tekton</span><span>Gunicorn</span>
-        <span>PyInstaller</span><span>Debian Packaging</span>
+        <span>Python</span><span>FastAPI</span><span>Flask</span><span>REST APIs</span>
+        <span>SQLAlchemy</span><span>Pydantic</span><span>React</span><span>TypeScript</span>
+        <span>Vite</span><span>TanStack Query</span><span>PySide6 / PyQt</span>
       </div>
     </div>
 
     <div class="skill-group-card">
       <h3>Databases & Retrieval</h3>
       <div class="skill-group-pills">
-        <span>PostgreSQL</span><span>MySQL</span><span>MongoDB</span><span>Pinecone</span>
-        <span>Embeddings</span><span>Semantic Search</span>
+        <span>PostgreSQL</span><span>pgvector</span><span>Pinecone</span><span>MySQL</span>
+        <span>MongoDB</span><span>Vector Search</span><span>SQL</span><span>Hybrid Retrieval</span>
+      </div>
+    </div>
+
+    <div class="skill-group-card">
+      <h3>Cloud / DevOps / Systems</h3>
+      <div class="skill-group-pills">
+        <span>Docker</span><span>Docker Compose</span><span>GitHub Actions</span><span>CI/CD</span>
+        <span>Kubernetes</span><span>Linux</span><span>Alembic</span><span>Tekton</span>
+        <span>Gunicorn</span><span>PyInstaller</span><span>Debian Packaging</span>
       </div>
     </div>
 
     <div class="skill-group-card">
       <h3>Performance & Edge</h3>
       <div class="skill-group-pills">
-        <span>CUDA</span><span>GPU-Accelerated Inference</span><span>Real-Time Video Processing</span>
+        <span>GPU-Accelerated Inference</span><span>Real-Time Video Processing</span><span>RTSP</span>
+        <span>Multithreading</span><span>Distributed Systems</span>
         <span>Linux SBC Deployment</span><span>Resource Optimization</span>
       </div>
     </div>
@@ -1584,14 +1783,14 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-name">Sairaj Pankar</div>
-  <p class="footer-role">AI/ML Software Engineer · Computer Vision · Applied AI · Mumbai, India</p>
+  <p class="footer-role">AI/ML &amp; Generative AI Engineer · RAG · Computer Vision · AI Systems · Mumbai, India</p>
   <div class="footer-links">
     <a class="footer-link" href="mailto:sairajpankar@gmail.com">Email</a>
     <a class="footer-link" href="https://www.linkedin.com/in/sairaj-pankar-5854bb286/" target="_blank" rel="noopener">LinkedIn</a>
     <a class="footer-link" href="https://github.com/Sairaj2113" target="_blank" rel="noopener">GitHub</a>
     <a class="footer-link" href="tel:+918657623062">+91 8657623062</a>
   </div>
-  <div class="footer-copy">© 2026 Sairaj Pankar · AI/ML Software Engineering Portfolio</div>
+  <div class="footer-copy">© 2026 Sairaj Pankar · AI/ML &amp; Generative AI Engineering Portfolio</div>
 </footer>
 
 <script>
@@ -1621,33 +1820,34 @@ async function downloadResume(event, url) {
 
 const skills = [
   { name: 'Python', cat: 'Language', color: '#1a73e8', size: 'lg' },
-  { name: 'PyTorch', cat: 'AI/ML', color: '#7c4dff', size: 'lg' },
-  { name: 'YOLO', cat: 'Computer Vision', color: '#00acc1', size: 'lg' },
-  { name: 'CUDA', cat: 'Performance', color: '#00bcd4', size: 'lg' },
-  { name: 'OpenCV', cat: 'Computer Vision', color: '#1a73e8', size: 'md' },
-  { name: 'Scikit-learn', cat: 'AI/ML', color: '#7c4dff', size: 'md' },
-  { name: 'FastAPI', cat: 'Backend', color: '#00acc1', size: 'md' },
-  { name: 'PostgreSQL', cat: 'Database', color: '#7c4dff', size: 'md' },
+  { name: 'LangChain', cat: 'Generative AI', color: '#7c4dff', size: 'lg' },
+  { name: 'RAG', cat: 'Generative AI', color: '#00bcd4', size: 'lg' },
+  { name: 'FastAPI', cat: 'Backend', color: '#00acc1', size: 'lg' },
+  { name: 'PostgreSQL', cat: 'Database', color: '#1a73e8', size: 'lg' },
+  { name: 'pgvector', cat: 'Vector Retrieval', color: '#7c4dff', size: 'lg' },
+  { name: 'LLMs', cat: 'Generative AI', color: '#00bcd4', size: 'md' },
+  { name: 'PyTorch', cat: 'AI/ML', color: '#7c4dff', size: 'md' },
+  { name: 'React', cat: 'Frontend', color: '#00acc1', size: 'md' },
   { name: 'Docker', cat: 'DevOps', color: '#1a73e8', size: 'md' },
-  { name: 'GitHub Actions', cat: 'DevOps', color: '#7c4dff', size: 'md' },
-  { name: 'LightGBM', cat: 'AI/ML', color: '#00acc1', size: 'sm' },
-  { name: 'XGBoost', cat: 'AI/ML', color: '#1a73e8', size: 'sm' },
-  { name: 'CatBoost', cat: 'AI/ML', color: '#7c4dff', size: 'sm' },
-  { name: 'SentenceTransformers', cat: 'NLP', color: '#00bcd4', size: 'sm' },
-  { name: 'Pinecone', cat: 'Vector DB', color: '#00acc1', size: 'sm' },
-  { name: 'Kubernetes', cat: 'DevOps', color: '#1a73e8', size: 'sm' },
-  { name: 'Linux', cat: 'Systems', color: '#7c4dff', size: 'sm' },
-  { name: 'RTSP', cat: 'Vision Systems', color: '#00acc1', size: 'sm' },
+  { name: 'YOLO', cat: 'Computer Vision', color: '#00acc1', size: 'md' },
+  { name: 'TypeScript', cat: 'Frontend', color: '#1a73e8', size: 'sm' },
+  { name: 'SentenceTransformers', cat: 'Embeddings', color: '#00bcd4', size: 'sm' },
+  { name: 'GitHub Actions', cat: 'DevOps', color: '#7c4dff', size: 'sm' },
+  { name: 'CUDA', cat: 'Performance', color: '#00bcd4', size: 'sm' },
+  { name: 'OpenCV', cat: 'Computer Vision', color: '#1a73e8', size: 'sm' },
+  { name: 'Scikit-learn', cat: 'AI/ML', color: '#7c4dff', size: 'sm' },
+  { name: 'Linux', cat: 'Systems', color: '#00acc1', size: 'sm' },
 ];
 
 const orb = document.getElementById('skillsOrb');
 if (orb) {
   const orbW = 900, orbH = 520;
   const cx = orbW / 2, cy = orbH / 2;
+  // First six positions are the visually prominent slots (used by the 'lg' skills)
   const positions = [
-    {x:-340,y:-140},{x:-300,y:30},{x:-320,y:180},{x:-160,y:-200},{x:-180,y:180},
-    {x:0,y:-220},{x:0,y:210},{x:160,y:-190},{x:180,y:180},{x:300,y:-80},
-    {x:340,y:80},{x:240,y:0},{x:-240,y:0},{x:120,y:-100},{x:-120,y:100},
+    {x:-340,y:-140},{x:0,y:-220},{x:300,y:-80},{x:-320,y:180},{x:0,y:210},
+    {x:340,y:80},{x:-300,y:30},{x:-160,y:-200},{x:-180,y:180},{x:160,y:-190},
+    {x:180,y:180},{x:240,y:0},{x:-240,y:0},{x:120,y:-100},{x:-120,y:100},
     {x:120,y:140},{x:-120,y:-120},{x:260,y:160}
   ];
 
